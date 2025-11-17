@@ -1,4 +1,4 @@
-import { useEffect, useRef, useId } from "react"
+import { useEffect, useRef, useId, useState } from "react"
 
 import "./GlassSurface.css"
 
@@ -139,19 +139,23 @@ const GlassSurface = ({
     setTimeout(updateDisplacementMap, 0)
   }, [width, height])
 
-  const supportsSVGFilters = () => {
-    if (typeof window === "undefined") return false
+  const [useSVG, setUseSVG] = useState(false)
+
+  useEffect(() => {
+    if (typeof window === "undefined") return
+    
     const isWebkit = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent)
     const isFirefox = /Firefox/.test(navigator.userAgent)
 
     if (isWebkit || isFirefox) {
-      return false
+      setUseSVG(false)
+      return
     }
 
     const div = document.createElement("div")
     div.style.backdropFilter = `url(#${filterId})`
-    return div.style.backdropFilter !== ""
-  }
+    setUseSVG(div.style.backdropFilter !== "")
+  }, [filterId])
 
   const containerStyle = {
     ...style,
@@ -166,7 +170,7 @@ const GlassSurface = ({
   return (
     <div
       ref={containerRef}
-      className={`glass-surface ${supportsSVGFilters() ? "glass-surface--svg" : "glass-surface--fallback"} ${className}`}
+      className={`glass-surface ${useSVG ? "glass-surface--svg" : "glass-surface--fallback"} ${className}`}
       style={containerStyle}
     >
       <svg className="glass-surface__filter" xmlns="http://www.w3.org/2000/svg">

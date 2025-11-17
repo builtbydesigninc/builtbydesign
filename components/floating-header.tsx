@@ -36,23 +36,25 @@ export function FloatingHeader() {
               />
             </Link>
 
-            <nav className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
-              <Link href="#process" className="text-sm text-foreground hover:text-primary transition-colors">
-                Process
-              </Link>
-              <Link href="#projects" className="text-sm text-foreground hover:text-primary transition-colors">
-                Projects
-              </Link>
-              <Link href="#pricing" className="text-sm text-foreground hover:text-primary transition-colors">
-                Pricing
-              </Link>
-              <Link href="#faq" className="text-sm text-foreground hover:text-primary transition-colors">
-                FAQ
-              </Link>
-            </nav>
+          <nav className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
+            <a href="/#projects" className="text-sm text-foreground hover:text-primary transition-colors">
+              Projects
+            </a>
+            <a href="/#process" className="text-sm text-foreground hover:text-primary transition-colors">
+              Process
+            </a>
+            <a href="/#pricing" className="text-sm text-foreground hover:text-primary transition-colors">
+              Pricing
+            </a>
+            <a href="/#faq" className="text-sm text-foreground hover:text-primary transition-colors">
+              FAQ
+            </a>
+          </nav>
 
-            {/* CTA Button */}
+          {/* CTA Button */}
+          <a href="/apply">
             <HoverButton className="px-6 py-2 text-sm">Book a Slot</HoverButton>
+          </a>
           </div>
         </div>
       </GlassSurface>

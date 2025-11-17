@@ -47,7 +47,9 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.9 }}
           className="flex justify-center"
         >
-          <HoverButton>Book a Slot</HoverButton>
+          <a href="/apply">
+            <HoverButton>Book a Slot</HoverButton>
+          </a>
         </motion.div>
       </div>
     </section>

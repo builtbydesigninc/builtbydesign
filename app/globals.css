@@ -123,6 +123,9 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-background text-foreground;
     background: linear-gradient(135deg, oklch(0.23 0.04 175) 0%, oklch(0.20 0.045 178) 50%, oklch(0.23 0.04 175) 100%);

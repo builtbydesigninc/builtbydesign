@@ -17,9 +17,31 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Spark - Design Agency",
-  description: "Websites That Convert. A Design Partner That Sticks Around.",
-  generator: "v0.app",
+  title: "Built By Design",
+  description: "Launch your MVP in 14 days. AI-powered development for startups and founders. From concept to clickable product - we handle strategy, design, and launch.",
+  keywords: ["MVP development", "startup development", "AI development", "14 days MVP", "landing page design", "Next.js", "Supabase", "TailwindCSS"],
+  authors: [{ name: "Built By Design" }],
+  creator: "Built By Design",
+  icons: {
+    icon: [
+      { url: "/favicon_io/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon_io/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon_io/favicon.ico" },
+    ],
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://builtbydesign.com",
+    title: "Built By Design - MVP in 14 Days",
+    description: "Launch your MVP in 14 days. AI-powered development for startups and founders.",
+    siteName: "Built By Design",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Built By Design - MVP in 14 Days",
+    description: "Launch your MVP in 14 days. AI-powered development for startups and founders.",
+  },
 }
 
 export default function RootLayout({
@@ -32,6 +54,7 @@ export default function RootLayout({
       <head>
         <Script src="https://fast.wistia.com/player.js" strategy="afterInteractive" />
         <Script src="https://fast.wistia.com/embed/iwn51pnx1c.js" strategy="afterInteractive" type="module" />
+        <Script src="https://embed.typeform.com/next/embed.js" strategy="afterInteractive" />
         <style dangerouslySetInnerHTML={{
           __html: `wistia-player[media-id='iwn51pnx1c']:not(:defined) { 
             background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/iwn51pnx1c/swatch'); 

@@ -42,7 +42,7 @@ export function FAQSection() {
   ]
 
   return (
-    <section className="py-24 px-6 bg-background">
+    <section id="faq" className="py-24 px-6 bg-background">
       <div className="max-w-4xl mx-auto">
         <div className="text-center lg:text-left mb-16">
           <motion.h2
