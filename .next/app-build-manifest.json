@@ -23,6 +23,12 @@
       "static/chunks/main-app.js",
       "static/css/app/book/page.css",
       "static/chunks/app/book/page.js"
+    ],
+    "/thank-you/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/thank-you/page.css",
+      "static/chunks/app/thank-you/page.js"
     ]
   }
 }
