@@ -4,8 +4,44 @@ import { motion } from "framer-motion"
 import { FloatingHeader } from "@/components/floating-header"
 import { CheckCircle2, Calendar, Mail, ArrowRight } from "lucide-react"
 import Link from "next/link"
+import { useEffect } from "react"
+import confetti from "canvas-confetti"
 
 export default function ThankYouPage() {
+  useEffect(() => {
+    // Trigger confetti on page load
+    const duration = 3000
+    const end = Date.now() + duration
+
+    const colors = ["#91c7b1", "#f1f7ed", "#5fa88b"]
+
+    const frame = () => {
+      confetti({
+        particleCount: 3,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0 },
+        colors: colors,
+      })
+      confetti({
+        particleCount: 3,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1 },
+        colors: colors,
+      })
+
+      if (Date.now() < end) {
+        requestAnimationFrame(frame)
+      }
+    }
+
+    // Start confetti after a brief delay
+    setTimeout(() => {
+      frame()
+    }, 500)
+  }, [])
+
   return (
     <>
       <FloatingHeader />
