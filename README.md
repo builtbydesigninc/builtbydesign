@@ -22,6 +22,13 @@ Continue building your app on:
 
 **[https://v0.app/chat/5SMTUjzAj8a](https://v0.app/chat/5SMTUjzAj8a)**
 
+## Development
+
+```bash
+pnpm install
+pnpm dev
+```
+
 ## How It Works
 
 1. Create and modify your project using [v0.app](https://v0.app)
