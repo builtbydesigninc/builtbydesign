@@ -1,23 +1,26 @@
+import { LogoCloud } from "@/components/ui/logo-cloud-4"
+
 export function ClientLogos() {
   const logos = [
-    { name: "logoipsum-254", src: "/logos/logoipsum-254.svg" },
-    { name: "logoipsum-257", src: "/logos/logoipsum-257.svg" },
-    { name: "logoipsum-251", src: "/logos/logoipsum-251.svg" },
-    { name: "logoipsum-242", src: "/logos/logoipsum-242.svg" },
-    { name: "logoipsum-258", src: "/logos/logoipsum-258.svg" },
+    { src: "/logos/client-logos/cla-logo.png", alt: "CLA", size: "default", url: "https://ClinicLaunchAcademy.com" },
+    { src: "/logos/client-logos/clearmeds.png", alt: "Clear Meds", size: "default", url: "https://ClearMeds.com" },
+    { src: "/logos/client-logos/cloudhire.png", alt: "Cloud Hire", size: "large", url: "#" },
+    { src: "/logos/client-logos/everwell.png", alt: "Everwell", size: "small", url: "https://EverwellUSA.com" },
+    { src: "/logos/client-logos/growthaquisition.png", alt: "Growth Acquisition", size: "default", url: "https://GrowAcquisition.com" },
+    { src: "/logos/client-logos/hvac.png", alt: "HVAC to Equity", size: "default", url: "https://hvactoequity.com" },
+    { src: "/logos/client-logos/peptipharma.png", alt: "Peptipharma", size: "default", url: "https://PeptipharmaRX.com" },
+    { src: "/logos/client-logos/thepeptidemarket.png", alt: "The Peptide Market", size: "small", url: "https://thePeptideMarket.com" },
   ]
 
   return (
-    <section className="py-12 px-6 border-t border-border">
-      <div className="container mx-auto">
-        <h2 className="font-serif text-2xl md:text-3xl text-center mb-8 text-foreground/60">Trusted By</h2>
-        <div className="flex items-center justify-center gap-12 flex-wrap opacity-40 grayscale">
-          {logos.map((logo) => (
-            <div key={logo.name} className="flex items-center justify-center h-10">
-              <img src={logo.src || "/placeholder.svg"} alt={logo.name} className="h-full w-auto" />
-            </div>
-          ))}
-        </div>
+    <section className="py-16">
+      <div className="w-full">
+        <h2 className="text-center mb-8">
+          <span className="font-normal text-2xl md:text-3xl text-muted-foreground tracking-tight">
+            Companies we have worked with
+          </span>
+        </h2>
+        <LogoCloud logos={logos} />
       </div>
     </section>
   )

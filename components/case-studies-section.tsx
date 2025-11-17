@@ -1,90 +1,123 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { HoverButton } from "@/components/ui/hover-button"
+import CardSwap, { Card } from "@/components/ui/CardSwap"
 
 export function CaseStudiesSection() {
-  const caseStudies = [
+  const projects = [
     {
-      client: "TechFlow Agency",
-      project: "SaaS Landing Page Redesign",
-      metric: "127% increase in conversions",
-      description: "Complete redesign of their flagship product landing page with A/B tested conversion optimization.",
-      image: "/placeholder.svg?height=400&width=600",
+      title: "CLA",
+      description: "Training system for healthcare entrepreneurs",
+      image: "/logos/client sites/cla.png",
+      href: "https://ClinicLaunchAcademy.com",
     },
     {
-      client: "GrowthLab",
-      project: "White-Label Platform",
-      metric: "3x faster client onboarding",
-      description: "Built a scalable white-label solution enabling them to serve 50+ clients simultaneously.",
-      image: "/placeholder.svg?height=400&width=600",
+      title: "Clear Meds",
+      description: "Premium telehealth platform",
+      image: "/logos/client sites/clearmeds.png",
+      href: "https://EverwellUSA.com",
     },
     {
-      client: "Velocity Digital",
-      project: "E-commerce Optimization",
-      metric: "85% revenue growth",
-      description: "Optimized checkout flow and implemented conversion-focused design patterns across their platform.",
-      image: "/placeholder.svg?height=400&width=600",
+      title: "The Peptide Market",
+      description: "E-commerce for research peptides",
+      image: "/logos/client sites/thepeptidemarket.png",
+      href: "https://thePeptideMarket.com",
     },
     {
-      client: "Nexus Partners",
-      project: "Agency Website Rebuild",
-      metric: "200+ qualified leads/month",
-      description: "Strategic redesign focused on lead generation with integrated CRM and automation workflows.",
-      image: "/placeholder.svg?height=400&width=600",
+      title: "Peptiful",
+      description: "Pharmaceutical grade solutions",
+      image: "/logos/client sites/peptiful.png",
+      href: "https://PeptipharmaRX.com",
+    },
+    {
+      title: "HVAC to Equity",
+      description: "Business investment platform",
+      image: "/logos/client sites/hvactoequity.png",
+      href: "https://hvactoequity.com",
+    },
+    {
+      title: "Everwell USA",
+      description: "Complete wellness solutions",
+      image: "/logos/client sites/everwell usa.png",
+      href: "https://EverwellUSA.com",
     },
   ]
 
   return (
-    <section className="py-24 px-6 bg-background">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
+    <section className="py-32 bg-background">
+      <div className="max-w-7xl mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="mb-16"
+        >
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-center lg:text-left">Our Projects</h2>
+          <div className="space-y-4 text-lg text-muted-foreground leading-relaxed text-center lg:text-left max-w-3xl">
+            <p>
+              <span className="text-primary font-semibold">From telehealth platforms to e-commerce solutions</span>, we've built MVPs across diverse industries.
+            </p>
+            <p>
+              Each project launched in <span className="text-foreground font-semibold">14 days or less</span>. Real products, real results.
+            </p>
+            <p>
+              Your MVP team behind <span className="text-primary font-semibold">40+ successful product launches</span>.
+            </p>
+          </div>
+        </motion.div>
+
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
+
+          {/* Right: Card Stack - Centered on All Screens */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-            className="font-serif text-4xl md:text-5xl font-bold mb-4"
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="relative min-h-[350px] lg:h-[500px] w-full flex items-center justify-center lg:col-start-2 overflow-x-hidden overflow-y-visible lg:overflow-visible pb-20 lg:pb-0"
           >
-            Case Studies
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg text-muted-foreground max-w-2xl mx-auto"
-          >
-            Real results from agencies we've partnered with to drive growth and conversions.
-          </motion.p>
+            <div className="w-full max-w-[280px] md:max-w-none">
+              <CardSwap width={600} height={340} cardDistance={30} verticalDistance={40} delay={3500} pauseOnHover={true} easing="smooth">
+              {projects.map((project, index) => (
+                <Card key={index}>
+                  <a
+                    href={project.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full h-full relative overflow-hidden rounded-xl"
+                  >
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="absolute inset-0 w-full h-full object-contain bg-background"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                      <h3 className="font-serif text-2xl font-bold mb-1">{project.title}</h3>
+                      <p className="text-white/80 text-sm">{project.description}</p>
+                    </div>
+                  </a>
+                </Card>
+              ))}
+            </CardSwap>
+            </div>
+          </motion.div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {caseStudies.map((study, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group bg-secondary rounded-2xl overflow-hidden border border-border hover:border-primary/50 transition-all duration-300"
-            >
-              <div className="aspect-[3/2] overflow-hidden">
-                <img
-                  src={study.image || "/placeholder.svg"}
-                  alt={study.project}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-8">
-                <div className="text-sm font-semibold text-primary mb-2">{study.client}</div>
-                <h3 className="font-serif text-2xl font-bold mb-3">{study.project}</h3>
-                <div className="text-3xl font-bold text-primary mb-4">{study.metric}</div>
-                <p className="text-muted-foreground leading-relaxed">{study.description}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="text-center mt-20"
+        >
+          <HoverButton>Book a Slot</HoverButton>
+        </motion.div>
       </div>
     </section>
   )
 }
+

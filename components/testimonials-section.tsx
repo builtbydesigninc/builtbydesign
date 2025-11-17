@@ -1,43 +1,84 @@
-import { TestimonialSlider, type Testimonial } from "@/components/ui/testimonial-slider"
+"use client"
 
-const testimonials: Testimonial[] = [
-  {
-    image: "/placeholder.svg?height=400&width=400",
-    quote:
-      "Spark transformed our agency's web presence completely. The conversion-focused design they delivered increased our client inquiries by 85% in just three months. Their attention to detail and understanding of agency needs is unmatched.",
-    name: "Sarah Mitchell",
-    role: "Founder, Digital Growth Agency",
-    rating: 5,
-  },
-  {
-    image: "/placeholder.svg?height=400&width=400",
-    quote:
-      "Working with Spark has been a game-changer for our white-label services. They deliver consistently high-quality work that we're proud to present to our clients. The partnership has allowed us to scale faster than we ever thought possible.",
-    name: "James Rodriguez",
-    role: "Creative Director, Brand Studio",
-    rating: 5,
-  },
-  {
-    image: "/placeholder.svg?height=400&width=400",
-    quote:
-      "The team at Spark doesn't just build websites—they build growth engines. Their strategic approach to conversion optimization has helped us achieve a 3x ROI on our web investment. Highly recommend for any agency looking to scale.",
-    name: "Emily Chen",
-    role: "CEO, Marketing Solutions Co.",
-    rating: 5,
-  },
-]
+import { motion } from "framer-motion"
+import TeamSection from "@/components/ui/team"
+import { HoverButton } from "@/components/ui/hover-button"
 
 export function TestimonialsSection() {
+  const team = [
+    {
+      name: "Ashfaq Rahman",
+      role: "CEO & Co-Founder",
+      avatar: "/headshots/Ash.png",
+      link: "#",
+    },
+    {
+      name: "Muhammad Bin Sohail",
+      role: "Lead Engineer & Product",
+      avatar: "/headshots/Muhammad.png",
+      link: "#",
+    },
+    {
+      name: "Oliver Ibrahim",
+      role: "Growth Lead",
+      avatar: "/headshots/Oliver.png",
+      link: "#",
+    },
+  ]
+
   return (
-    <section className="py-32 px-4 bg-background overflow-visible">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-balance">What Our Partners Say</h2>
-          <p className="font-sans text-lg text-muted-foreground max-w-2xl mx-auto">
-            Don't just take our word for it—hear from the agencies we've helped grow.
+    <section className="py-32 px-6 bg-background">
+      <div className="mx-auto max-w-5xl">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="mb-16"
+        >
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-center lg:text-left">
+            The Team
+          </h2>
+          <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
+            <p className="text-center lg:text-left">
+              <span className="text-primary font-semibold">Brought to you by the team that built data from $50M in ad spend.</span>
+            </p>
+            <p className="text-center lg:text-left">
+              Multiple 8-figure generation for clients. Scaled multiple businesses from 0-1, 1-10, 10-100.
+            </p>
+            <p className="text-center lg:text-left">
+              With experience in multiple industries: Info-Coaching products, community building, talent acquisition, online ads, content generation & marketing, software development, pharma, and government contracts.
+            </p>
+            <p className="text-center lg:text-left">
+              <span className="text-foreground font-semibold">We don't work with everyone.</span> We maintain a low client-to-POC ratio to deliver results fast at a higher quality.
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Team Grid */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <TeamSection members={team} />
+        </motion.div>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="text-center mt-16"
+        >
+          <p className="text-muted-foreground mb-6">
+            Your MVP is in a week's reach. <span className="text-primary font-semibold">Apply now</span> →
           </p>
-        </div>
-        <TestimonialSlider testimonials={testimonials} />
+          <HoverButton>Book a Slot</HoverButton>
+        </motion.div>
       </div>
     </section>
   )

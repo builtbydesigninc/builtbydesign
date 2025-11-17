@@ -1,32 +1,44 @@
 import Link from "next/link"
-import { IconBrandLinkedin, IconBrandTwitter, IconBrandInstagram, IconMail, IconPhone } from "@tabler/icons-react"
+import { IconBrandLinkedin, IconBrandTwitter, IconBrandInstagram, IconMail } from "@tabler/icons-react"
 
 export function Footer() {
   return (
-    <footer className="bg-background border-t border-border">
+    <footer className="glass-header border-t border-primary/20">
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div className="md:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-                <span className="text-white font-bold text-lg">S</span>
-              </div>
-              <span className="font-serif text-xl font-bold">Spark</span>
+            <div className="mb-6">
+              {/* Mobile: Show only emblem */}
+              <img 
+                src="/logos/bbd-emblem.png" 
+                alt="Built By Design" 
+                className="h-9 w-auto md:hidden"
+              />
+              {/* Desktop: Show full word-mark */}
+              <img 
+                src="/logos/word-mark logo.png" 
+                alt="Built By Design" 
+                className="h-8 w-auto hidden md:block"
+              />
             </div>
-            <p className="text-muted-foreground leading-relaxed max-w-md">
-              Trusted conversion websites, built for agencies that scale. Turn every visit into growth with a partner
-              invested in your success.
+            <p className="text-muted-foreground leading-relaxed max-w-md mb-6">
+              Have an idea for a MVP? Join the other founders who trusted us to bring their ideas to life.
             </p>
+            <Link href="#hero">
+              <button className="glass px-6 py-3 rounded-full border border-primary/30 text-primary font-semibold hover:bg-primary/5 transition-all duration-300">
+                Book a Slot
+              </button>
+            </Link>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-semibold mb-4">Quick Links</h3>
+            <h3 className="font-semibold mb-4">Navigation</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#services" className="text-muted-foreground hover:text-primary transition-colors">
-                  Services
+                <Link href="/" className="text-muted-foreground hover:text-primary transition-colors">
+                  Home
                 </Link>
               </li>
               <li>
@@ -35,13 +47,18 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="#projects" className="text-muted-foreground hover:text-primary transition-colors">
+                  Projects
+                </Link>
+              </li>
+              <li>
                 <Link href="#pricing" className="text-muted-foreground hover:text-primary transition-colors">
                   Pricing
                 </Link>
               </li>
               <li>
-                <Link href="#testimonials" className="text-muted-foreground hover:text-primary transition-colors">
-                  Testimonials
+                <Link href="#faq" className="text-muted-foreground hover:text-primary transition-colors">
+                  FAQ
                 </Link>
               </li>
             </ul>
@@ -49,34 +66,24 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-semibold mb-4">Contact</h3>
-            <ul className="space-y-3">
-              <li>
-                <a
-                  href="mailto:hello@sparkagency.com"
-                  className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-                >
-                  <IconMail className="w-4 h-4" />
-                  hello@sparkagency.com
-                </a>
-              </li>
-              <li>
-                <a
-                  href="tel:+1234567890"
-                  className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-                >
-                  <IconPhone className="w-4 h-4" />
-                  (123) 456-7890
-                </a>
-              </li>
-            </ul>
+            <h3 className="font-semibold mb-4">Get In Touch</h3>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Ready to build your MVP? Let's turn your idea into reality.
+            </p>
+            <a
+              href="mailto:hello@builtbydesign.com"
+              className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-3"
+            >
+              <IconMail className="w-4 h-4" />
+              hello@builtbydesign.com
+            </a>
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Spark Agency. All rights reserved.
+            © {new Date().getFullYear()} Built By Design. All rights reserved.
           </p>
 
           {/* Social Links */}

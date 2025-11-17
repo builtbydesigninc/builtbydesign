@@ -3,19 +3,28 @@
 export function PortfolioShowcase() {
   const portfolioItems = [
     {
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1-6laqPMa8FuLJLGY15UqGeDduXqPTnL.png",
+      image: "/logos/client sites/cla.png",
+      alt: "CLA Website"
     },
     {
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2-2SM27flFV2PAGevb0yGPlw5a1VO0Uc.png",
+      image: "/logos/client sites/clearmeds.png",
+      alt: "Clear Meds Website"
     },
     {
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3-auovg1HaxuQFknmxHcpbfOBXQPjAWw.png",
+      image: "/logos/client sites/peptiful.png",
+      alt: "Peptiful Website"
     },
     {
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/4-1SjePGsMFItZp8FKWs7dh9emmNImMD.png",
+      image: "/logos/client sites/thepeptidemarket.png",
+      alt: "The Peptide Market Website"
     },
     {
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/5-mlczSZMqTq3CmnCXAs0oV6ITGeKdDV.png",
+      image: "/logos/client sites/hvactoequity.png",
+      alt: "HVAC to Equity Website"
+    },
+    {
+      image: "/logos/client sites/everwell usa.png",
+      alt: "Everwell USA Website"
     },
   ]
 
@@ -26,8 +35,8 @@ export function PortfolioShowcase() {
         <div className="flex gap-6 animate-scroll-seamless">
           {portfolioItems.map((item, index) => (
             <div key={`set1-${index}`} className="flex-shrink-0 w-[600px]">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-lg">
-                <img src={item.image || "/placeholder.svg"} alt="" className="w-full h-full object-cover" />
+              <div className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-lg border-2 border-primary/20 glass-card">
+                <img src={item.image || "/placeholder.svg"} alt={item.alt} className="w-full h-full object-cover" />
               </div>
             </div>
           ))}
@@ -36,8 +45,8 @@ export function PortfolioShowcase() {
         <div className="flex gap-6 animate-scroll-seamless ml-6" aria-hidden="true">
           {portfolioItems.map((item, index) => (
             <div key={`set2-${index}`} className="flex-shrink-0 w-[600px]">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-lg">
-                <img src={item.image || "/placeholder.svg"} alt="" className="w-full h-full object-cover" />
+              <div className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-lg border-2 border-primary/20 glass-card">
+                <img src={item.image || "/placeholder.svg"} alt={item.alt} className="w-full h-full object-cover" />
               </div>
             </div>
           ))}

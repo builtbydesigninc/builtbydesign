@@ -3,64 +3,74 @@
 import { useState } from "react"
 import { IconChevronDown } from "@tabler/icons-react"
 import { motion } from "framer-motion"
+import { HoverButton } from "@/components/ui/hover-button"
 
 export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   const faqs = [
     {
-      question: "What's your typical project timeline?",
+      question: "Do you code everything or use no-code/low-code tools?",
       answer:
-        "Most projects take 2-4 weeks from kickoff to launch, depending on scope. We provide detailed timelines during our discovery phase and keep you updated throughout the process.",
+        "Yes, we code everything from scratch using a modern AI-first tech stack: Next.js, Supabase, TailwindCSS, powered by tools like Cursor and Claude Code. We've experimented with low-code platforms before, but they're rarely scalable for real-world products. They also end up being slower to customize, especially when features grow. Thanks to AI, writing code is now faster than ever and gives you clean, scalable, and production-grade results.",
     },
     {
-      question: "Do you offer white-label services?",
+      question: "How long does MVP development take?",
       answer:
-        "Yes! Our Enterprise plan includes white-label solutions where we work behind the scenes as an extension of your agency. Your clients will only see your branding.",
+        "Our standard MVP development takes 14 days from start to launch. We move at startup speed, keeping development lean and focused on validation-ready features.",
     },
     {
-      question: "What if I need revisions after launch?",
+      question: "What happens after the MVP is done?",
       answer:
-        "All our plans include post-launch support. Professional plans get 30 days of support, while Enterprise clients receive ongoing maintenance and updates as part of their package.",
+        "Once launched, your product is ready to test with users, pitch to investors, or go to market. We provide ongoing support from our team along the way, including maintenance, optimization, and feature development.",
     },
     {
-      question: "Can you work with our existing tech stack?",
+      question: "What's included in the MVP package?",
       answer:
-        "Absolutely. We're experienced with all major platforms and frameworks. During discovery, we'll assess your current setup and recommend the best approach for integration.",
+        "The MVP package includes 60 hours of development time per month, flexible hours allocation, weekly strategy calls, priority feature development, continuous maintenance & optimization, and same-day emergency support.",
     },
     {
-      question: "How do you ensure high conversion rates?",
+      question: "My product has 10–15 core features. Can we build all of them?",
       answer:
-        "We use data-driven design principles, A/B testing, and proven conversion optimization techniques. Every design decision is backed by research and best practices from thousands of successful projects.",
+        "We map out features and prioritize what to build first, aligning the roadmap around fast validation and clear outcomes. We'll work with you to identify the core features that deliver the most value and build them in a scalable way.",
     },
     {
-      question: "What's included in ongoing support?",
+      question: "What services do you offer?",
       answer:
-        "Ongoing support includes bug fixes, security updates, performance monitoring, content updates, and monthly strategy calls to ensure your site continues to perform at its best.",
+        "We offer MVP Development (full-stack builds for startups), Landing Page Design (high-converting pages), Website Development, Mobile App Development, and AI SaaS products. All built with modern tech stacks and AI-powered development.",
     },
   ]
 
   return (
     <section className="py-24 px-6 bg-background">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center lg:text-left mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
-            className="font-serif text-4xl md:text-5xl font-bold mb-4"
+            className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
           >
-            Frequently Asked Questions
+            FAQs
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-xl text-muted-foreground mb-3"
+          >
+            <span className="text-foreground font-semibold">All your questions, answered</span>
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.3 }}
             className="text-lg text-muted-foreground"
           >
-            Everything you need to know about working with Spark.
+            Everything you need to know before <span className="text-primary font-semibold">building your MVP</span> with us.
           </motion.p>
         </div>
 
@@ -72,15 +82,15 @@ export function FAQSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
-              className="border border-border rounded-xl overflow-hidden bg-secondary"
+              className="glass-card border-2 border-primary/20 rounded-xl overflow-hidden transition-all duration-300"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-background/50 transition-colors"
+                className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-primary/5 transition-colors"
               >
                 <span className="font-semibold text-lg pr-8">{faq.question}</span>
                 <IconChevronDown
-                  className={`w-5 h-5 flex-shrink-0 transition-transform ${openIndex === index ? "rotate-180" : ""}`}
+                  className={`w-5 h-5 flex-shrink-0 transition-transform text-primary ${openIndex === index ? "rotate-180" : ""}`}
                 />
               </button>
               {openIndex === index && (
@@ -97,6 +107,17 @@ export function FAQSection() {
             </motion.div>
           ))}
         </div>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="text-center mt-16"
+        >
+          <HoverButton>Book a Slot</HoverButton>
+        </motion.div>
       </div>
     </section>
   )

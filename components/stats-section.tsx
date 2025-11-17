@@ -1,8 +1,29 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { X, Check } from "lucide-react"
 
 export function StatsSection() {
+  const traditionalModel = [
+    "3-6 months to launch",
+    "Outdated tech stacks",
+    "Manual, slow processes",
+    "Limited scalability",
+    "No ongoing support",
+    "High development costs",
+    "Rigid workflows",
+  ]
+
+  const builtByDesignModel = [
+    "Launch-ready MVPs in 14 days",
+    "AI-powered development",
+    "Scalable, modern tech stack",
+    "Full-stack expertise",
+    "Next.js, Supabase, TailwindCSS",
+    "Continuous deployment",
+    "Post-launch support included",
+  ]
+
   return (
     <section className="py-20 px-6">
       <div className="max-w-7xl mx-auto">
@@ -12,67 +33,65 @@ export function StatsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="font-serif text-4xl md:text-5xl lg:text-6xl text-center mb-16 leading-tight text-balance"
+          className="font-serif text-4xl md:text-5xl lg:text-6xl text-center lg:text-left mb-4 leading-tight text-balance font-bold"
         >
-          <span className="text-accent">Driving conversions</span>, scaling agencies, and{" "}
-          <span className="text-accent">transforming growth</span>. Let&apos;s build your success together.
+          Why Built By Design?
         </motion.h2>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Stat 1 */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-center lg:text-left text-xl text-muted-foreground max-w-4xl mb-16 leading-relaxed"
+        >
+          <span className="text-foreground font-semibold">Too many founders waste months</span> just trying to get their MVP off the ground. We move faster, build leaner, and deliver <span className="text-primary font-semibold">a working product in under a month</span> so you can start <span className="text-foreground font-semibold">validating, not waiting.</span>
+        </motion.p>
+
+        {/* Comparison Cards */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {/* Traditional Models Card */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="border-2 border-dashed border-border rounded-3xl p-8 text-center"
+            className="rounded-3xl p-8 border border-muted/30 bg-muted/20 opacity-60"
           >
-            <div className="mb-4">
-              <span className="font-serif text-7xl md:text-8xl font-bold">1,000</span>
-              <span className="text-accent text-5xl md:text-6xl font-serif font-bold">+</span>
-            </div>
-            <h3 className="font-serif text-2xl font-semibold mb-4">Projects Delivered</h3>
-            <p className="text-muted-foreground font-sans leading-relaxed">
-              We&apos;ve successfully completed over 1,000 conversion-focused websites—and we&apos;re just getting
-              started!
+            <h3 className="font-serif text-3xl font-bold mb-4 text-muted-foreground">Traditional Agencies</h3>
+            <p className="text-muted-foreground/70 mb-8 text-sm">
+              Slow Development, Outdated Processes
             </p>
+            <div className="space-y-4">
+              {traditionalModel.map((item, index) => (
+                <div key={index} className="flex items-start gap-3">
+                  <X className="w-5 h-5 text-red-400/60 flex-shrink-0 mt-0.5" />
+                  <span className="text-muted-foreground/80">{item}</span>
+                </div>
+              ))}
+            </div>
           </motion.div>
 
-          {/* Stat 2 */}
+          {/* Built By Design Card */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="border-2 border-dashed border-border rounded-3xl p-8 text-center"
+            className="glass-card rounded-3xl p-8 border-2 border-primary shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all duration-300"
           >
-            <div className="mb-4">
-              <span className="font-serif text-7xl md:text-8xl font-bold">85</span>
-              <span className="text-accent text-5xl md:text-6xl font-serif font-bold">%</span>
-            </div>
-            <h3 className="font-serif text-2xl font-semibold mb-4">Conversion Increase</h3>
-            <p className="text-muted-foreground font-sans leading-relaxed">
-              Our strategies have helped agencies achieve up to 85% conversion rate improvements in just one year!
+            <h3 className="font-serif text-3xl font-bold mb-4 text-foreground">The Built By Design Model</h3>
+            <p className="text-primary mb-8 text-sm font-semibold">
+              AI-Driven Development System
             </p>
-          </motion.div>
-
-          {/* Stat 3 */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="border-2 border-dashed border-border rounded-3xl p-8 text-center"
-          >
-            <div className="mb-4">
-              <span className="font-serif text-7xl md:text-8xl font-bold">500</span>
-              <span className="text-accent text-5xl md:text-6xl font-serif font-bold">+</span>
+            <div className="space-y-4">
+              {builtByDesignModel.map((item, index) => (
+                <div key={index} className="flex items-start gap-3">
+                  <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground font-medium">{item}</span>
+                </div>
+              ))}
             </div>
-            <h3 className="font-serif text-2xl font-semibold mb-4">Agency Partners</h3>
-            <p className="text-muted-foreground font-sans leading-relaxed">
-              More than 500 agencies trust us to deliver websites that drive real business growth.
-            </p>
           </motion.div>
         </div>
       </div>

@@ -25,7 +25,7 @@ const StarRating = ({ rating, className }: { rating: number; className?: string 
   return (
     <div className={cn("flex items-center gap-1", className)}>
       {[...Array(5)].map((_, i) => (
-        <Star key={i} className={cn("h-4 w-4", i < rating ? "text-accent fill-accent" : "text-muted-foreground/50")} />
+        <Star key={i} className={cn("h-4 w-4", i < rating ? "text-primary fill-primary" : "text-muted-foreground/50")} />
       ))}
     </div>
   )
@@ -92,8 +92,8 @@ export const TestimonialSlider = ({ testimonials, className }: TestimonialSlider
               </div>
 
               {/* Text & Controls Section */}
-              <div className="relative w-full bg-card text-card-foreground rounded-2xl shadow-xl pt-8 md:pt-4 pl-4 md:pl-24 pr-4 pb-4">
-                <Quote className="absolute top-4 left-4 h-8 w-8 text-accent/20" aria-hidden="true" />
+              <div className="relative w-full glass-card rounded-2xl shadow-xl pt-8 md:pt-4 pl-4 md:pl-24 pr-4 pb-4 border-2 border-primary/20">
+                <Quote className="absolute top-4 left-4 h-8 w-8 text-primary/30" aria-hidden="true" />
                 <blockquote className="text-sm md:text-base mb-4 leading-relaxed font-sans">
                   {currentTestimonial.quote}
                 </blockquote>
@@ -107,14 +107,14 @@ export const TestimonialSlider = ({ testimonials, className }: TestimonialSlider
                   <div className="flex items-center gap-2">
                     <button
                       onClick={handlePrevious}
-                      className="inline-flex items-center justify-center rounded-full h-10 w-10 bg-secondary hover:bg-accent hover:text-accent-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+                      className="inline-flex items-center justify-center rounded-full h-10 w-10 glass hover:bg-primary hover:text-primary-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border border-primary/30"
                       aria-label="Previous testimonial"
                     >
                       <ChevronLeft className="h-5 w-5" />
                     </button>
                     <button
                       onClick={handleNext}
-                      className="inline-flex items-center justify-center rounded-full h-10 w-10 bg-secondary hover:bg-accent hover:text-accent-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+                      className="inline-flex items-center justify-center rounded-full h-10 w-10 glass hover:bg-primary hover:text-primary-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border border-primary/30"
                       aria-label="Next testimonial"
                     >
                       <ChevronRight className="h-5 w-5" />
@@ -134,7 +134,7 @@ export const TestimonialSlider = ({ testimonials, className }: TestimonialSlider
             onClick={() => setCurrentIndex(index)}
             className={cn(
               "h-2 w-2 rounded-full transition-all duration-300",
-              currentIndex === index ? "w-4 bg-accent" : "bg-muted-foreground/50",
+              currentIndex === index ? "w-4 bg-primary" : "bg-muted-foreground/50 hover:bg-primary/50",
             )}
             aria-label={`Go to testimonial ${index + 1}`}
           />
