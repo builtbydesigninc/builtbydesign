@@ -11,11 +11,18 @@ export function Hero() {
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.8, delay: 0.4, type: "spring", stiffness: 100 }}
           className="font-serif text-5xl md:text-7xl lg:text-8xl font-bold text-center leading-[1.05] mb-6 text-balance mt-12"
         >
           Build and Validate in{" "}
-          <span className="gradient-text-mint">14 Days</span>
+          <motion.span 
+            className="text-accent"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.8, type: "spring", stiffness: 200 }}
+          >
+            14 Days
+          </motion.span>
         </motion.h1>
 
         {/* Sub-headline */}
@@ -30,9 +37,10 @@ export function Hero() {
 
         {/* VSL Video */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.7 }}
+          initial={{ opacity: 0, y: 20, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.7, type: "spring", stiffness: 100 }}
+          whileHover={{ scale: 1.02, y: -5 }}
           className="max-w-4xl mx-auto mb-10"
         >
           <div className="glass-card rounded-2xl overflow-hidden border-2 border-primary/30 shadow-2xl">
@@ -42,9 +50,10 @@ export function Hero() {
 
         {/* CTA Button */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.9 }}
+          initial={{ opacity: 0, y: 20, scale: 0.9 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.9, type: "spring", stiffness: 150 }}
+          whileHover={{ scale: 1.05 }}
           className="flex justify-center"
         >
           <a href="/apply">

@@ -9,10 +9,11 @@ export function CTASection() {
     <section className="py-24 px-6">
       <div className="max-w-5xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 40, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
+          whileHover={{ scale: 1.02, y: -5 }}
           className="relative glass-card rounded-3xl border-2 border-primary/30 shadow-2xl overflow-hidden"
         >
           {/* Decorative gradient overlay */}
@@ -20,10 +21,11 @@ export function CTASection() {
 
           <div className="relative px-8 py-16 md:px-16 md:py-20 text-center">
             <motion.div
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
+              initial={{ scale: 0, rotate: -180 }}
+              whileInView={{ scale: 1, rotate: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.2, type: "spring", stiffness: 200 }}
+              whileHover={{ scale: 1.2, rotate: 180 }}
               className="inline-flex items-center justify-center w-16 h-16 rounded-full glass mb-6"
             >
               <IconSparkles className="w-8 h-8 text-primary" />
@@ -36,7 +38,7 @@ export function CTASection() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
             >
-              <span className="text-foreground">Need both?</span> <span className="text-primary">We've got you.</span>
+              <span className="text-foreground">Need both?</span> <span className="text-accent">We've got you.</span>
             </motion.h2>
 
             <motion.p

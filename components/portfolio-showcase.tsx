@@ -26,6 +26,14 @@ export function PortfolioShowcase() {
       image: "/logos/client sites/everwell usa.png",
       alt: "Everwell USA Website"
     },
+    {
+      image: "/logos/client sites/cloudhire.png",
+      alt: "CloudHire Website"
+    },
+    {
+      image: "/logos/client sites/growacquisition.png",
+      alt: "GrowAcquisition Website"
+    },
   ]
 
   return (

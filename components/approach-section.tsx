@@ -49,10 +49,18 @@ export function ApproachSection() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
             className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-balance"
           >
-            Our Process
+            Our <motion.span 
+              className="text-accent"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3, type: "spring", stiffness: 200 }}
+            >
+              Process
+            </motion.span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -77,7 +85,7 @@ export function ApproachSection() {
         {/* Steps */}
         <div className="relative">
           {/* Connecting Line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/60 to-primary md:block" />
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent via-accent/60 to-accent md:block" />
 
           <div className="space-y-16">
             {steps.map((step, index) => (
@@ -92,15 +100,26 @@ export function ApproachSection() {
                 }`}
               >
                 {/* Step Number Circle */}
-                <div className="flex-shrink-0 w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-serif text-xl font-bold relative z-10 md:absolute md:left-1/2 md:-translate-x-1/2">
+                <motion.div 
+                  initial={{ scale: 0, rotate: -180 }}
+                  whileInView={{ scale: 1, rotate: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6, delay: index * 0.1 + 0.2, type: "spring", stiffness: 200 }}
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  className="flex-shrink-0 w-16 h-16 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-serif text-xl font-bold relative z-10 md:absolute md:left-1/2 md:-translate-x-1/2 shadow-lg shadow-accent/30"
+                >
                   {step.number}
-                </div>
+                </motion.div>
 
                 {/* Content Card */}
                 <div
                   className={`flex-1 ${index % 2 === 0 ? "md:pr-16 md:text-right" : "md:pl-16 md:text-left"} md:w-1/2`}
                 >
-                  <div className="glass-card p-8 rounded-2xl border-2 border-primary/20 hover:scale-105 transition-all duration-300">
+                  <motion.div 
+                    whileHover={{ scale: 1.05, y: -5 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                    className="glass-card p-8 rounded-2xl border-2 border-primary/20 transition-all duration-300"
+                  >
                     <h3 className="font-serif text-2xl md:text-3xl mb-4 font-bold">{step.title}</h3>
                     <p className="text-muted-foreground leading-relaxed mb-4">{step.description}</p>
                     
@@ -136,7 +155,7 @@ export function ApproachSection() {
                         ))}
                       </div>
                     )}
-                  </div>
+                  </motion.div>
                 </div>
 
                 {/* Spacer for alternating layout */}

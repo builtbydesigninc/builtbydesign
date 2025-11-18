@@ -42,6 +42,18 @@ export function CaseStudiesSection() {
       image: "/logos/client sites/everwell usa.png",
       href: "https://EverwellUSA.com",
     },
+    {
+      title: "CloudHire",
+      description: "AI-powered recruitment platform",
+      image: "/logos/client sites/cloudhire.png",
+      href: "https://cloudhire.com",
+    },
+    {
+      title: "GrowAcquisition",
+      description: "Business growth & acquisition",
+      image: "/logos/client sites/growacquisition.png",
+      href: "https://growacquisition.com",
+    },
   ]
 
   return (
@@ -51,10 +63,18 @@ export function CaseStudiesSection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
           className="mb-16"
         >
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-center lg:text-left">Our Projects</h2>
+          <motion.h2 
+            className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-center lg:text-left"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
+          >
+            Our Projects
+          </motion.h2>
           <div className="space-y-4 text-lg text-muted-foreground leading-relaxed text-center lg:text-left max-w-3xl">
             <p>
               <span className="text-primary font-semibold">From telehealth platforms to e-commerce solutions</span>, we've built MVPs across diverse industries.

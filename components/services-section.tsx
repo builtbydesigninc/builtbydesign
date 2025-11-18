@@ -57,10 +57,18 @@ export function ServicesSection() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
             className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-4 tracking-tight"
           >
-            We build every kind of MVP fast
+            We build every kind of <motion.span 
+              className="text-accent"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4, type: "spring", stiffness: 200 }}
+            >
+              MVP
+            </motion.span> fast
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -75,10 +83,10 @@ export function ServicesSection() {
 
         {/* Display Cards */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 40, scale: 0.9 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          transition={{ duration: 0.8, delay: 0.3, type: "spring", stiffness: 100 }}
           className="flex justify-center items-center min-h-[500px] md:min-h-[500px] min-h-[420px] overflow-hidden px-4"
         >
           <div className="scale-75 md:scale-100 origin-center">

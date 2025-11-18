@@ -78,19 +78,20 @@ export function FAQSection() {
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 20, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
+              transition={{ duration: 0.4, delay: index * 0.05, type: "spring", stiffness: 150 }}
+              whileHover={{ scale: 1.02, x: 5 }}
               className="glass-card border-2 border-primary/20 rounded-xl overflow-hidden transition-all duration-300"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-primary/5 transition-colors"
+                className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-accent/5 transition-colors"
               >
                 <span className="font-semibold text-lg pr-8">{faq.question}</span>
                 <IconChevronDown
-                  className={`w-5 h-5 flex-shrink-0 transition-transform text-primary ${openIndex === index ? "rotate-180" : ""}`}
+                  className={`w-5 h-5 flex-shrink-0 transition-transform ${openIndex === index ? "rotate-180 text-accent" : "text-primary"}`}
                 />
               </button>
               {openIndex === index && (

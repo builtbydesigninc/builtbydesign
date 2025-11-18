@@ -34,12 +34,18 @@ export function TestimonialsSection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
           className="mb-16"
         >
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-center lg:text-left">
+          <motion.h2 
+            className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-center lg:text-left"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
+          >
             The Team
-          </h2>
+          </motion.h2>
           <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
             <p className="text-center lg:text-left">
               <span className="text-primary font-semibold">Brought to you by the team that built data from $50M in ad spend.</span>

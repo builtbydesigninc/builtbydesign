@@ -32,10 +32,18 @@ export function StatsSection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
           className="font-serif text-4xl md:text-5xl lg:text-6xl text-center lg:text-left mb-4 leading-tight text-balance font-bold"
         >
-          Why Built By Design?
+          Why <motion.span 
+            className="text-accent"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3, type: "spring", stiffness: 200 }}
+          >
+            Built By Design
+          </motion.span>?
         </motion.h2>
 
         <motion.p
@@ -77,19 +85,35 @@ export function StatsSection() {
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="glass-card rounded-3xl p-8 border-2 border-primary shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all duration-300"
+            transition={{ duration: 0.6, delay: 0.2, type: "spring", stiffness: 100 }}
+            whileHover={{ scale: 1.02, y: -5 }}
+            className="glass-card rounded-3xl p-8 border-2 border-accent shadow-lg shadow-accent/30 hover:shadow-accent/40 transition-all duration-300"
           >
             <h3 className="font-serif text-3xl font-bold mb-4 text-foreground">The Built By Design Model</h3>
-            <p className="text-primary mb-8 text-sm font-semibold">
+            <p className="text-accent mb-8 text-sm font-semibold">
               AI-Driven Development System
             </p>
             <div className="space-y-4">
               {builtByDesignModel.map((item, index) => (
-                <div key={index} className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                <motion.div 
+                  key={index} 
+                  className="flex items-start gap-3"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  whileHover={{ x: 5 }}
+                >
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: index * 0.1 + 0.2, type: "spring", stiffness: 200 }}
+                  >
+                    <Check className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                  </motion.div>
                   <span className="text-foreground font-medium">{item}</span>
-                </div>
+                </motion.div>
               ))}
             </div>
           </motion.div>

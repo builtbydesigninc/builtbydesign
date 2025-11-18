@@ -76,16 +76,16 @@ const HoverButton = React.forwardRef<HTMLButtonElement, HoverButtonProps>(
         ref={buttonRef}
         className={cn(
           "relative isolate px-10 py-4 rounded-full",
-          "text-primary font-bold text-base leading-6",
-          "backdrop-blur-lg bg-transparent border-2 border-primary",
+          "text-accent-foreground font-bold text-base leading-6",
+          "backdrop-blur-lg bg-accent border-2 border-accent",
           "cursor-pointer overflow-hidden",
           "before:content-[''] before:absolute before:inset-0",
           "before:rounded-[inherit] before:pointer-events-none",
           "before:z-[1]",
-          "before:shadow-[inset_0_0_0_2px_rgba(145,199,177,0.2),inset_0_0_20px_0_rgba(145,199,177,0.1),0_2px_8px_0_rgba(145,199,177,0.3)]",
+          "before:shadow-[inset_0_0_0_2px_rgba(185,90,43,0.3),inset_0_0_20px_0_rgba(185,90,43,0.15),0_2px_8px_0_rgba(185,90,43,0.4)]",
           "before:transition-all before:duration-300",
           "active:before:scale-[0.975]",
-          "transition-all duration-300 hover:scale-105 hover:border-primary hover:shadow-lg hover:shadow-primary/30",
+          "transition-all duration-300 hover:scale-105 hover:brightness-110 hover:shadow-lg hover:shadow-accent/40",
           className
         )}
         onPointerMove={handlePointerMove}
@@ -93,8 +93,8 @@ const HoverButton = React.forwardRef<HTMLButtonElement, HoverButtonProps>(
         onPointerLeave={handlePointerLeave}
         {...props}
         style={{
-          "--circle-start": "rgba(145, 199, 177, 0.9)",
-          "--circle-end": "rgba(145, 199, 177, 0.5)",
+          "--circle-start": "rgba(185, 90, 43, 0.9)",
+          "--circle-end": "rgba(185, 90, 43, 0.5)",
         } as React.CSSProperties}
       >
         {circles.map(({ id, x, y, color, fadeState }) => (

@@ -1,4 +1,4 @@
-// File: /Users/mbs/Desktop/Builtbydesign/superhuman/app/layout.tsx
+// File: /Users/mbs/Desktop/Builtbydesign/Builtbydesign/app/layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

@@ -129,8 +129,8 @@ export function PricingSection() {
         </TimelineContent>
       </article>
 
-      <div className="grid md:grid-cols-3 gap-6 py-6">
-        {plans.map((plan, index) => (
+      <div className="grid md:grid-cols-2 gap-8 py-6 max-w-5xl mx-auto">
+        {plans.filter(plan => plan.name !== "Bump").map((plan, index) => (
           <TimelineContent
             key={plan.name}
             as="div"
@@ -138,20 +138,28 @@ export function PricingSection() {
             timelineRef={pricingRef}
             customVariants={revealVariants}
           >
-            <Card
-              className={`relative glass-card border-2 transition-all duration-300 ${
-                plan.popular ? "border-primary shadow-lg shadow-primary/20 scale-105" : "border-primary/20"
-              }`}
+            <motion.div
+              whileHover={{ scale: plan.popular ? 1.08 : 1.03, y: -8 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
+              <Card
+                className={`relative glass-card border-2 transition-all duration-300 ${
+                  plan.popular ? "border-accent shadow-lg shadow-accent/30 scale-105" : "border-primary/20"
+                }`}
+              >
               <CardHeader className="text-left">
                 <div className="flex justify-between items-start mb-4">
                   <div className="p-2 rounded-lg glass border border-primary/30">
                     <span className="text-primary">{plan.icon}</span>
                   </div>
                   {plan.popular && (
-                    <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-bold">
+                    <motion.span 
+                      className="bg-accent text-accent-foreground px-3 py-1 rounded-full text-xs font-bold shadow-lg shadow-accent/30"
+                      animate={{ scale: [1, 1.05, 1] }}
+                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                    >
                       Popular
-                    </span>
+                    </motion.span>
                   )}
                 </div>
                 <h3 className="font-serif text-3xl font-bold text-foreground mb-2">{plan.name}</h3>
@@ -172,7 +180,7 @@ export function PricingSection() {
                   className={cn(
                     "w-full mb-6 p-4 text-base rounded-xl font-semibold transition-all duration-300",
                     plan.popular
-                      ? "bg-primary text-primary-foreground border-2 border-primary hover:scale-105"
+                      ? "bg-accent text-accent-foreground border-2 border-accent hover:scale-105 hover:brightness-110 shadow-lg shadow-accent/30"
                       : "glass border-2 border-primary/30 text-primary hover:bg-primary/10"
                   )}
                 >
@@ -185,17 +193,30 @@ export function PricingSection() {
                   </h4>
                   <ul className="space-y-2">
                     {plan.includes.slice(1).map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start">
-                        <span className="h-5 w-5 bg-primary/10 border border-primary rounded-full grid place-content-center mt-0.5 mr-3 flex-shrink-0">
+                      <motion.li 
+                        key={featureIndex} 
+                        className="flex items-start"
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.3, delay: featureIndex * 0.05 }}
+                        whileHover={{ x: 3 }}
+                      >
+                        <motion.span 
+                          className="h-5 w-5 bg-primary/10 border border-primary rounded-full grid place-content-center mt-0.5 mr-3 flex-shrink-0"
+                          whileHover={{ scale: 1.2, rotate: 360 }}
+                          transition={{ duration: 0.3 }}
+                        >
                           <CheckCheck className="h-3 w-3 text-primary" />
-                        </span>
+                        </motion.span>
                         <span className="text-sm text-muted-foreground">{feature}</span>
-                      </li>
+                      </motion.li>
                     ))}
                   </ul>
                 </div>
               </CardContent>
             </Card>
+            </motion.div>
           </TimelineContent>
         ))}
       </div>
